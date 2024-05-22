@@ -23,7 +23,7 @@ ip route add $pim_rp/32 via $pim_gw
 cat <<EOF > /etc/pimd.conf
 phyint g0 enable igmpv3
 phyint $pim_eth0 enable igmpv3
-pyhint $pim_eth1 enable igmpv3
+phyint $pim_eth1 enable igmpv3
 rp-address $pim_rp 224.0.0.0/4
 EOF
 
