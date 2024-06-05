@@ -1,6 +1,6 @@
 FROM alpine:edge
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk upgrade --no-cache && apk add --no-cache pimd iproute2 opennhrp strongswan
+RUN apk upgrade --no-cache && apk add --no-cache pimd iproute2 opennhrp strongswan iptables-legacy
 
 COPY ./opennhrp-script /etc/opennhrp/opennhrp-script
 

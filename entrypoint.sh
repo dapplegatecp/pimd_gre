@@ -81,6 +81,8 @@ secrets {
 }
 EOF
 
+iptables-legacy -t nat -I POSTROUTING -o g0 -p tcp --dport 179 -j MASQUERADE
+
 ipsec start
 # wait for /var/run/charon.vivi
 while [ ! -e /var/run/charon.vici ]; do
