@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-sleep 20
+sleep ${START_DELAY:-0}
 pim_rp=${PIM_RP:-192.168.127.1}
 
 pim_eth0=${PIM_ETH0:-eth0}
@@ -81,7 +81,7 @@ secrets {
 }
 EOF
 
-iptables -t nat -I POSTROUTING -o g0 -p tcp -m tcp --dport 179 -j MASQUERADE
+iptables-legacy -t nat -I POSTROUTING -o g0 -p tcp -m tcp --dport 179 -j MASQUERADE
 
 ipsec start
 # wait for /var/run/charon.vivi
